@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front Lines — Choose Your Theater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Stardos+Stencil:wght@700&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14130f;
+    --paper: #d9cfb4;
+    --ink: #e8e0c8;
+    --muted: #9a927c;
+    --ww2: #8a7a4a;
+    --ua-blue: #2f5f9e;
+    --ua-yellow: #e2b93b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at top, rgba(255,240,200,0.06), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px),
+      var(--bg);
+    color: var(--ink);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 20px 40px;
+  }
+  header { text-align: center; margin-bottom: 48px; }
+  .stamp {
+    display: inline-block;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    border: 1px solid var(--muted);
+    padding: 2px 12px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Stardos Stencil', 'Impact', sans-serif;
+    font-size: clamp(44px, 9vw, 88px);
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .sub { margin-top: 14px; color: var(--muted); font-size: 18px; }
+
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    width: 100%;
+    max-width: 920px;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    background: #1d1b16;
+    border: 1px solid #3a362b;
+    padding: 28px 26px 26px;
+    min-height: 300px;
+    overflow: hidden;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .card::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  }
+  .card.ww2::before { background: var(--ww2); }
+  .card.ua::before { background: linear-gradient(var(--ua-blue) 50%, var(--ua-yellow) 50%); }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--paper);
+    box-shadow: 0 14px 40px rgba(0,0,0,.5);
+    outline: none;
+  }
+  .era {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--muted);
+  }
+  .card h2 {
+    font-family: 'Stardos Stencil', 'Impact', sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 8px 0 4px;
+  }
+  .place { font-size: 17px; color: var(--paper); margin-bottom: 18px; }
+  .desc { font-size: 16px; line-height: 1.55; color: #c4bba3; flex: 1; }
+  .go {
+    margin-top: 22px;
+    align-self: flex-start;
+    font-family: 'Stardos Stencil', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 10px 22px;
+    border: 2px solid var(--ink);
+    transition: background .2s, color .2s;
+  }
+  .card:hover .go { background: var(--ink); color: var(--bg); }
+
+  footer {
+    margin-top: 56px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="stamp">SELECT THEATER</div>
+    <h1>Front Lines</h1>
+    <p class="sub">Two wars. Two fronts. Choose where you deploy.</p>
+  </header>
+
+  <main class="choices">
+    <a class="card ww2" href="ww2/">
+      <span class="era">1944 // WORLD WAR II</span>
+      <h2>Dog Green Sector</h2>
+      <div class="place">Omaha Beach, Normandy</div>
+      <p class="desc">Hit the beach on D-Day and fight your way off the sand.</p>
+      <span class="go">DEPLOY ▸</span>
+    </a>
+
+    <a class="card ua" href="ukraine/">
+      <span class="era">PRESENT DAY // UKRAINE</span>
+      <h2>Zero Line</h2>
+      <div class="place">The front line, Ukraine</div>
+      <p class="desc">Hold the zero line, the closest point to the enemy on the modern front.</p>
+      <span class="go">DEPLOY ▸</span>
+    </a>
+  </main>
+
+  <footer>Made by Mason Mueller</footer>
+</body>
+</html>
